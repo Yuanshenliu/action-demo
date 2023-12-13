@@ -21,4 +21,4 @@ jobs:
        - name: Build
          run: yarn build
        - name: Build the Docker image
-         run: docker build --file DockerfilePath -t ashen/action-test:latest .
+         run: docker build --file Dockerfile -t ashen/action-test:latest .
