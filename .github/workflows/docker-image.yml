@@ -25,7 +25,10 @@ jobs:
            registry: ghcr.io # 声明镜像源
            username: ${{ github.actor }}  # 当前github 用户名
            password: ${{ secrets.HUB_GITHUB_TOKEN }} #需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限
-       - name: Build the Docker image
-         run: docker build --file Dockerfile -t ashen/action-test:latest .
-       - name: Push image
-         run: docker push ghcr.io/yuanshenliu/action-demo:latest
+       - name: Build and push Docker image
+         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+         with:
+           context: .
+           push: true
+           tags: ${{ steps.meta.outputs.tags }}
+           labels: ${{ steps.meta.outputs.labels }}
