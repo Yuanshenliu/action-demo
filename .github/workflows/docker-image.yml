@@ -28,4 +28,4 @@ jobs:
        - name: Build the Docker image
          run: docker build --file Dockerfile -t ashen/action-test:latest .
        - name: Push image
-         run: docker push ghcr.io/Yuanshenliu/web-image:latest
+         run: docker push ghcr.io/yuanshenliu/web-image:latest
