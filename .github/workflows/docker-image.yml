@@ -27,5 +27,5 @@ jobs:
            password: ${{ secrets.HUB_GITHUB_TOKEN }} #需要去 https://github.com/settings/tokens 生成一个 名为 token，注意此token 需要读写 packages 等权限
        - name: Build the Docker image
          run: docker build --file Dockerfile -t ashen/action-test:latest .
-              docker push ghcr.io/Yuanshenliu/web-image:latest
-
+       - name: Push image
+         run: docker push ghcr.io/Yuanshenliu/web-image:latest
